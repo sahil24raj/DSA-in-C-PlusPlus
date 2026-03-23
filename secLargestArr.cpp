@@ -10,6 +10,7 @@ int main()
  int smx= INT_MIN;
     for(int i=0;i<n;i++){
     if(arr[i]>mx){
+        smx=mx;
         mx=arr[i];
     }
     else if(arr[i]>smx && arr[i]!=mx){

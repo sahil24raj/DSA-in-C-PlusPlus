@@ -4,16 +4,19 @@
 using namespace std;
 int main()
 {
-    int nums[] = {9, 2, 33, 4, -5};
-    int size = 5;
-    int smallest = INT_MAX;
-    for (int i = 0; i < size; i++)
-    {
-        if (nums[i] < smallest)
-        {
-            smallest = nums[i];
-        }
+ int arr[]={1,2,3,4,5};
+ int n= sizeof(arr)/sizeof(arr[0]);
+ int mx= INT_MIN;
+ int smx= INT_MIN;
+    for(int i=0;i<n;i++){
+    if(arr[i]>mx){
+        smx=mx;
+        mx=arr[i];
     }
-    cout << "Smallest number is: " << smallest << endl;
-    return 0;
+    else if(arr[i]>smx && arr[i]!=mx){
+        smx=arr[i];
+    }
+    }
+    cout<<"maximum element : "<<mx<<endl;
+    cout<<"second maximum element : "<<smx;
 }
