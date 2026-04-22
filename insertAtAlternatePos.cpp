@@ -47,20 +47,16 @@ public:
         }
         cout << endl;
     }
-    void reversingLinkedList(Node *&head)
+    void deleteAlternateNodes(Node *&head)
     {
-        Node *prev = NULL;
-        Node *curr = head;
-        Node *next = NULL;
-        while (curr != NULL)
+        Node *curr_node = head;
+        while (curr_node != NULL && curr_node->next != NULL)
         {
-            next = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = next;
+            Node *temp = curr_node->next;
+            curr_node->next = curr_node->next->next;
+            delete temp;
+            curr_node = curr_node->next;
         }
-        head = prev;
-        display();
     }
 };
 
@@ -69,11 +65,11 @@ int main()
     LinkedList l;
     l.insertAtTail(10);
     l.insertAtTail(20);
-    l.insertAtTail(20);
+    l.insertAtTail(30);
     l.insertAtTail(40);
     l.insertAtTail(50);
     l.display();
-    l.reversingLinkedList(l.head);
-    cout << endl;
+    l.deleteAlternateNodes(l.head);
+    l.display();
     return 0;
 }
